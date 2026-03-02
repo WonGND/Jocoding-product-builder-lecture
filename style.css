@@ -1,12 +1,23 @@
-
 :root {
   --background-color: #1a1a1a;
   --text-color: #ffffff;
   --accent-color: #ff4081;
   --container-bg: #2c2c2c;
-  --ball-bg: #4d4d4d;
+  --ball-text: #ffffff;
   --ball-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   --button-glow: 0 0 15px rgba(255, 64, 129, 0.8);
+  --toggle-bg: #444;
+}
+
+body.light-mode {
+  --background-color: #f0f2f5;
+  --text-color: #333333;
+  --accent-color: #007bff;
+  --container-bg: #ffffff;
+  --ball-text: #ffffff;
+  --ball-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --button-glow: 0 0 10px rgba(0, 123, 255, 0.3);
+  --toggle-bg: #ddd;
 }
 
 body {
@@ -18,7 +29,8 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23333333' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23888888' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 .container {
@@ -26,16 +38,41 @@ body {
   padding: 40px;
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   width: 90%;
   max-width: 500px;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--toggle-bg);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  opacity: 0.8;
 }
 
 h1 {
   font-size: 2.5rem;
+  margin-top: 10px;
   margin-bottom: 30px;
   color: var(--accent-color);
-  text-shadow: 0 0 10px var(--accent-color);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: color 0.3s ease;
 }
 
 .lotto-numbers {
@@ -48,7 +85,7 @@ h1 {
 
 #generate-btn {
   background-color: var(--accent-color);
-  color: var(--text-color);
+  color: #fff;
   border: none;
   padding: 15px 30px;
   font-size: 1.2rem;
@@ -60,7 +97,7 @@ h1 {
 
 #generate-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 25px rgba(255, 64, 129, 1);
+  filter: brightness(1.1);
 }
 
 @media (max-width: 600px) {

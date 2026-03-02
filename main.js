@@ -35,9 +35,9 @@ class LottoBall extends HTMLElement {
           align-items: center;
           font-size: 1.8rem;
           font-weight: bold;
-          color: var(--text-color, #fff);
-          background: radial-gradient(circle at 20px 20px, ${color.bg}, #333);
-          box-shadow: inset -5px -5px 15px ${color.shadow}, 0 10px 20px rgba(0, 0, 0, 0.6);
+          color: #fff;
+          background: radial-gradient(circle at 20px 20px, ${color.bg}, #222);
+          box-shadow: inset -5px -5px 15px rgba(0,0,0,0.4), 0 5px 15px rgba(0, 0, 0, 0.3);
           text-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
          @media (max-width: 600px) {
@@ -55,19 +55,51 @@ class LottoBall extends HTMLElement {
   }
 
   getColorForNumber(num) {
-    if (num <= 10) return { bg: '#fbc400', shadow: 'rgba(0,0,0,0.3)' }; // Yellow
-    if (num <= 20) return { bg: '#69c8f2', shadow: 'rgba(0,0,0,0.3)' }; // Blue
-    if (num <= 30) return { bg: '#ff7272', shadow: 'rgba(0,0,0,0.3)' }; // Red
-    if (num <= 40) return { bg: '#aaaaaa', shadow: 'rgba(0,0,0,0.3)' }; // Gray
-    return { bg: '#b0d840', shadow: 'rgba(0,0,0,0.3)' };          // Green
+    if (num <= 10) return { bg: '#fbc400' }; // Yellow
+    if (num <= 20) return { bg: '#69c8f2' }; // Blue
+    if (num <= 30) return { bg: '#ff7272' }; // Red
+    if (num <= 40) return { bg: '#aaaaaa' }; // Gray
+    return { bg: '#b0d840' };                // Green
   }
 }
 
 customElements.define('lotto-ball', LottoBall);
 
+// DOM Elements
 const generateBtn = document.getElementById('generate-btn');
 const lottoNumbersContainer = document.getElementById('lotto-numbers');
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const themeText = document.getElementById('theme-text');
 
+// Theme Logic
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+    themeIcon.textContent = '☀️';
+    themeText.textContent = '라이트 모드';
+  } else {
+    document.body.classList.remove('light-mode');
+    themeIcon.textContent = '🌙';
+    themeText.textContent = '다크 모드';
+  }
+}
+
+themeToggle.addEventListener('click', () => {
+  const isLightMode = document.body.classList.toggle('light-mode');
+  if (isLightMode) {
+    localStorage.setItem('theme', 'light');
+    themeIcon.textContent = '☀️';
+    themeText.textContent = '라이트 모드';
+  } else {
+    localStorage.setItem('theme', 'dark');
+    themeIcon.textContent = '🌙';
+    themeText.textContent = '다크 모드';
+  }
+});
+
+// Lotto Generation Logic
 function generateLottoNumbers() {
   const numbers = new Set();
   while (numbers.size < 6) {
@@ -89,7 +121,8 @@ generateBtn.addEventListener('click', () => {
   });
 });
 
-// Initial generation
+// Initial Setup
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     generateBtn.click();
-})
+});

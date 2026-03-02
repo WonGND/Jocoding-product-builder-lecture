@@ -1,29 +1,21 @@
-# Lotto Number Generator
+# 프로젝트 개요
+로또 번호 추첨기 웹 애플리케이션입니다. 현대적인 UI/UX와 사용자 편의 기능을 제공합니다.
 
-## Overview
+## 주요 기능 및 디자인
 
-This project is a web-based lottery number generator. It provides users with a visually appealing and interactive way to generate random lottery numbers. The application will be built using modern web standards, including HTML, CSS, and JavaScript, with a focus on Web Components for modularity and modern CSS for styling.
+### 1. 기능
+- **로또 번호 생성**: 1부터 45 사이의 중복되지 않는 6개의 숫자를 생성하고 오름차순으로 정렬하여 표시합니다.
+- **애니메이션 효과**: 번호가 생성될 때 공이 회전하며 나타나는 애니메이션 효과를 적용했습니다.
+- **테마 전환 (다크/라이트 모드)**: 사용자의 선호에 따라 다크 모드와 라이트 모드를 전환할 수 있으며, 설정은 브라우저에 저장됩니다.
 
-## Features
+### 2. 디자인 및 스타일
+- **Web Components**: `lotto-ball` 커스텀 엘리먼트를 사용하여 공 모양의 UI를 모듈화했습니다.
+- **현대적인 색상**: 번호 대역별로 다른 색상(노랑, 파랑, 빨강, 회색, 초록)을 적용하여 시각적 구분을 명확히 했습니다.
+- **반응형 레이아웃**: 모바일과 데스크톱 환경 모두에서 최적화된 화면을 제공합니다.
+- **CSS 변수 사용**: 테마 전환이 용이하도록 색상 값을 변수로 관리합니다.
 
-*   **Random Number Generation:** Generates a set of unique random numbers for the lottery.
-*   **Interactive UI:** A user-friendly interface with a button to trigger the number generation.
-*   **Visual Appeal:** Modern and aesthetically pleasing design with animations and effects.
-*   **Web Components:** Uses custom elements to display the lottery numbers for better encapsulation and reusability.
-*   **Responsive Design:** The layout will adapt to different screen sizes.
-
-## Current Plan
-
-### Phase 1: Initial Setup & UI
-
-1.  **Modify `index.html`:**
-    *   Update the page title and header.
-    *   Create the basic structure for the lottery number display and the generator button.
-2.  **Modify `style.css`:**
-    *   Apply a modern design with a color palette, custom fonts, and a textured background.
-    *   Style the main container, the number display area, and the button.
-    *   Use CSS variables for colors and add drop shadows for depth.
-3.  **Modify `main.js`:**
-    *   Create a `<lotto-ball>` web component to display individual numbers.
-    *   Implement the JavaScript logic to generate 6 unique random numbers between 1 and 45.
-    *   Add an event listener to the "Generate" button to trigger the number generation and display the results using the new web component.
+## 현재 작업 단계: 테마 기능 추가 및 배포
+1. `style.css`에 다크/라이트 모드 변수 정의 및 전환 스타일 추가.
+2. `index.html`에 테마 전환 버튼 추가.
+3. `main.js`에 테마 전환 로직 및 로컬 스토리지 저장 기능 구현.
+4. Git을 통한 최신 코드 업로드 및 배포 준비.
