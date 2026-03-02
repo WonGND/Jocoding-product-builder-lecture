@@ -1,1 +1,76 @@
-/* Add styles here */
+
+:root {
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  --accent-color: #ff4081;
+  --container-bg: #2c2c2c;
+  --ball-bg: #4d4d4d;
+  --ball-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  --button-glow: 0 0 15px rgba(255, 64, 129, 0.8);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Helvetica Neue', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23333333' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.container {
+  background-color: var(--container-bg);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px var(--accent-color);
+}
+
+.lotto-numbers {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+#generate-btn {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--button-glow);
+}
+
+#generate-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(255, 64, 129, 1);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .lotto-numbers {
+    gap: 10px;
+  }
+}
