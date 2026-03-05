@@ -1,21 +1,30 @@
-# 프로젝트 개요
-로또 번호 추첨기 웹 애플리케이션입니다. 현대적인 UI/UX와 사용자 편의 기능을 제공합니다.
+# **Project Overview**
+A modern, framework-less web application that provides a Lotto Number Generator and a partnership inquiry form. The app features a dark/light mode toggle, responsive design, and uses Web Components for modularity.
 
-## 주요 기능 및 디자인
+## **Features**
+1. **Lotto Number Generator:**
+   - Generates 6 random numbers (1-45).
+   - Animated lotto balls using a custom `lotto-ball` Web Component.
+   - Color-coded balls based on number ranges.
+2. **Dark/Light Mode:**
+   - Persistent theme selection using `localStorage`.
+   - Smooth transitions and themed UI elements.
+3. **Partnership Inquiry Form:**
+   - Integration with Formspree for handling submissions.
+   - Modern, responsive form design with interactive elements.
+   - Custom `partner-form` Web Component for encapsulation.
 
-### 1. 기능
-- **로또 번호 생성**: 1부터 45 사이의 중복되지 않는 6개의 숫자를 생성하고 오름차순으로 정렬하여 표시합니다.
-- **애니메이션 효과**: 번호가 생성될 때 공이 회전하며 나타나는 애니메이션 효과를 적용했습니다.
-- **테마 전환 (다크/라이트 모드)**: 사용자의 선호에 따라 다크 모드와 라이트 모드를 전환할 수 있으며, 설정은 브라우저에 저장됩니다.
+## **Design & Aesthetics**
+- **Colors:** Deep grays and vibrant accents (Pink/Blue) for dark mode; clean whites and blues for light mode.
+- **Typography:** Modern sans-serif (Helvetica Neue).
+- **Interactivity:** Hover effects, glow animations, and smooth transitions.
+- **Visual Effects:** Subtle background patterns, layered drop shadows for depth.
 
-### 2. 디자인 및 스타일
-- **Web Components**: `lotto-ball` 커스텀 엘리먼트를 사용하여 공 모양의 UI를 모듈화했습니다.
-- **현대적인 색상**: 번호 대역별로 다른 색상(노랑, 파랑, 빨강, 회색, 초록)을 적용하여 시각적 구분을 명확히 했습니다.
-- **반응형 레이아웃**: 모바일과 데스크톱 환경 모두에서 최적화된 화면을 제공합니다.
-- **CSS 변수 사용**: 테마 전환이 용이하도록 색상 값을 변수로 관리합니다.
-
-## 현재 작업 단계: 테마 기능 추가 및 배포
-1. `style.css`에 다크/라이트 모드 변수 정의 및 전환 스타일 추가.
-2. `index.html`에 테마 전환 버튼 추가.
-3. `main.js`에 테마 전환 로직 및 로컬 스토리지 저장 기능 구현.
-4. Git을 통한 최신 코드 업로드 및 배포 준비.
+## **Current Task: Partnership Inquiry Form**
+- **Objective:** Add a simple, elegant partnership inquiry form connected to Formspree.
+- **Endpoint:** `https://formspree.io/f/mykngpaj`
+- **Steps:**
+  1. Define `PartnerForm` Web Component in `main.js`.
+  2. Add form styles to `style.css` (inputs, buttons, layout).
+  3. Integrate the form into `index.html`.
+  4. Implement success/error handling for the form submission.
