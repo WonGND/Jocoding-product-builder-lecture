@@ -13,6 +13,9 @@ A modern, framework-less web application that provides a Lotto Number Generator 
    - Integration with Formspree for handling submissions.
    - Modern, responsive form design with interactive elements.
    - Custom `partner-form` Web Component for encapsulation.
+4. **Comments Section:**
+   - Integration with Disqus for user engagement and feedback.
+   - Styled to fit the application's modern aesthetic.
 
 ## **Design & Aesthetics**
 - **Colors:** Deep grays and vibrant accents (Pink/Blue) for dark mode; clean whites and blues for light mode.
